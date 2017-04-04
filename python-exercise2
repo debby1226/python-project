@@ -1,0 +1,104 @@
+1 定义一个方法get_num(num),num参数是列表类型，判断列表里面的元素为数字类型。其他类型则报错，并且返回一个偶数列表：（注：列表里面的元素为偶数）。
+#coding=utf-8
+def func(x):
+  if(x%2 ==0):
+     return x
+
+def makelist(lst):
+	for i in lst:
+		if isinstance(i,int):
+			pass
+                 else:
+                        return"类型错误"         
+        return filter(func,lst)
+
+2 定义一个方法get_page(url),url参数是需要获取网页内容的网址，返回网页的内容。提示（可以了解python的urllib模块）。
+#coding=utf-8
+import urllib.request
+def get_page(url):
+   f=urllib.urlopen(url)
+   if urlib.urlopen(url).getcode()==404:
+          return "NOT FOUND"
+   else:
+          return f.read()
+
+3 定义一个方法 func，该func引入任意多的列表参数，返回所有列表中最大的那个元素。
+#coding=utf-8
+def compare(*num):
+  for i in num:
+	t=max(i)
+  return t
+
+
+4 定义一个方法get_dir(f),f参数为任意一个磁盘路径，该函数返回路径下的所有文件夹组成的列表，如果没有文件夹则返回"Not dir"。
+import os
+def get_dir(dir): 
+	if os.path.exists(dir):
+		if os.path.isdir(dir):
+			for i in os.listdir(dir):
+				print(i)
+		else:
+			return "NOT DIR"
+	else:
+		return "NOT FOUND"
+
+
+5 定义一个方法get_fundoc(func),func参数为任意一个函数对象，返回该函数对象的描述文档，如果该函数没有描述文档，则返回"not found"
+#coding=utf-8
+def get_fundoc(func):
+     t=func.__doc__
+     if instance(t,str):
+           return t
+     else:
+           return "NOT FOUND"
+6 定义一个方法get_cjsum(),求1-100范围内的所有整数的平方和。返回结果为整数类型。
+#coding=utf-b
+方法一：
+def square(i):
+     return i*i
+def get_cjsum():
+    a=range(101)
+    b=list(map(square,a))
+    return sum(b)
+方法二：
+def getsum():
+	i=0
+	sum=0
+	while i<101:
+		sum+=i*i
+		i=i+1
+	return sum
+7 定义一个方法list_info(list), 参数list为列表对象，怎么保证在函数里对列表list进行一些相关的操作，不会影响到原来列表的元素值，比如：
+
+a = [1,2,3]
+
+def list_info(list):
+   '''要对list进行相关操作，不能直接只写一句return[1,2,5]，这样就没意义了'''
+
+print list_info(a):返回结果：[1,2,5]
+
+print a 输出结果：[1,2,3]
+
+写出函数体内的操作代码。
+
+
+8 定义一个方法get_funcname(func),func参数为任意一个函数对象，需要判断函数是否可以调用，如果可以调用则返回该函数名(
+类型为str)，否则返回 “fun is not function"。
+9 用lambda和filter完成下面功能：输出一个列表，列表里面包括：1-100内的所有偶数。（提示：可以用filter,lambda）
+
+10 用位置匹配，关键字匹配，收集匹配(元组收集,字典收集)分别写4个函数，完成功能；
+
+传递3个列表参数：
+
+[1,2,3],[1,5,65],[33,445,22]
+
+返回这3个列表中元素最大的那个，结果是：445
+
+
+11 递归函数解释，用自己的话说明这个递归函数的工作流程。
+
+def func1(i):
+	if i<100:
+		return i + func1(i+1)
+	return i
+print func1(0)
